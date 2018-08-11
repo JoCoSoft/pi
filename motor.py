@@ -2,7 +2,14 @@ import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BOARD)
-control_pins = [7, 11, 13, 15]
+
+
+control_pins = [
+    7,      # GPIO 04 (Pin 7)
+    11,     # GPIO 17 (Pin 11)
+    13,     # GPIO 27 (Pin 13)
+    15      # GPIO 22 (Pin 15)
+]
 
 for pin in control_pins:
     GPIO.setup(pin, GPIO.OUT)
