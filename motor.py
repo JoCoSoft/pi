@@ -39,10 +39,10 @@ def rotateMotor(clockwise, degrees=360):
 
 
 def openVent(degrees=360):
-    print "Opening " + str(degrees) + " degrees"
+    print "Rotating " + str(degrees) + " degrees counter-clockwise"
     rotateMotor(False, degrees)
 
 
 def closeVent(degrees=360):
-    print "Closing " + str(degrees) + " degrees"
+    print "Rotating " + str(degrees) + " degrees clockwise"
     rotateMotor(True, degrees)
