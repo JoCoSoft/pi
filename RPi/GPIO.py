@@ -23,11 +23,6 @@ def cleanup():
     return
 
 
-def setmode(a):
-    #print a
-    return
-
-
 def setwarnings(flag):
     #print 'False'
     return
