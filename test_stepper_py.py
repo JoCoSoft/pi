@@ -23,7 +23,7 @@ for i in range(512):
 
 # Attempt at moving in opposite direction
 for i in range(512):
-    for halfstep in range(8):
+    for halfstep in reversed(range(8)):
         for pin in reversed(range(4)):
             GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])
         time.sleep(0.001)
