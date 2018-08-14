@@ -28,11 +28,11 @@ halfstep_seq = [
 
 
 def rotateMotor(clockwise, degrees=360):
-    for _ in range(512):
+    for _ in range(128): #512):
         for halfstep in range(8) if clockwise else reversed(range(8)):
             for pin in range(4) if clockwise else reversed(range(4)):
                 GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])
-            time.sleep(0.001)
+            time.sleep(0.0008)
 
 
 def openVent(degrees=360):
