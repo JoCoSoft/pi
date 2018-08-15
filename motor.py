@@ -30,7 +30,10 @@ halfstep_seq = [
 def rotateMotor(clockwise, degrees):
     fullRotationSteps = 512
     fullRotationDegrees = 360
-    halfstepExecutions = fullRotationSteps * (fullRotationDegrees / degrees)
+    halfstepExecutions = int(fullRotationSteps *
+                             (float(degrees) / float(fullRotationDegrees)))
+
+    print "Looping for " + str(halfstepExecutions) + " half step executions"
 
     for _ in range(halfstepExecutions):
         for halfstep in range(8) if clockwise else reversed(range(8)):
