@@ -18,13 +18,14 @@ def processJobs():
     for job in jsonResponse:
         print "Processing job " + job["id"]
         jobName = job["name"]
+        jobDegrees = job["degrees"] if not None else 90
 
         if jobName == "open":
-            motor.openVent()
+            motor.openVent(jobDegrees)
             continue
 
         if jobName == "close":
-            motor.closeVent()
+            motor.closeVent(jobDegrees)
             continue
 
 

@@ -27,19 +27,23 @@ halfstep_seq = [
 ]
 
 
-def rotateMotor(clockwise, degrees=360):
-    for _ in range(128): #512):
+def rotateMotor(clockwise, degrees):
+    fullRotationSteps = 512
+    fullRotationDegrees = 360
+    halfstepExecutions = fullRotationSteps * (fullRotationDegrees / degrees)
+
+    for _ in range(halfstepExecutions):
         for halfstep in range(8) if clockwise else reversed(range(8)):
             for pin in range(4) if clockwise else reversed(range(4)):
                 GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])
             time.sleep(0.0008)
 
 
-def openVent(degrees=360):
+def openVent(degrees):
     print "Rotating " + str(degrees) + " degrees counter-clockwise"
     rotateMotor(False, degrees)
 
 
-def closeVent(degrees=360):
+def closeVent(degrees):
     print "Rotating " + str(degrees) + " degrees clockwise"
     rotateMotor(True, degrees)
